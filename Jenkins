@@ -22,7 +22,7 @@ pipeline {
   post {
       always {          
           deleteDir()
-           "echo 'fase always'"
+         bash  "echo 'fase always'"
       }
       success {
            bash "echo 'fase success'"
