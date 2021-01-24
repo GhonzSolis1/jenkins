@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     bat '''
-					docker build -t apache
+					docker build -t apache .
 					'''
                     
                     }
