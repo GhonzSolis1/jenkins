@@ -13,8 +13,8 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    bat '''
-					docker build -t apache .
+                    bat ''' 
+					docker build  jobs/dockerweb/ -t apache .
 					'''
                     
                     }
