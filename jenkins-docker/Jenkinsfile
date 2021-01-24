@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     bat '''
-					docker build    jobs/dockerweb/ -t iproyecto-qa:latest
+					docker build    jobs/dockerweb/ -t v
 					'''
                     
                     }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script{
                     bat '''
-					docker run -dp ${puerto_imagen}:80 --name proyecto-qaiproyecto-qa81 iproyecto-qa:latest
+					 docker run -d --name apache -p 8082:80 apache
 					'''
                     }
                     
