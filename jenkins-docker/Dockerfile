@@ -1,23 +1,18 @@
-FROM centos 
+FROM php:7.1.17-apache
+LABEL maintainer="Jaivic"
 
-LABEL version=1.0 
-LABEL description="Esto es una imagen apache"
-LABEL vendor=Gonzalo
+RUN a2enmod rewrite
 
-RUN yum install httpd -y
+RUN apt-get update && apt-get install -y \
+        zlib1g-dev \
+        libicu-dev \
+        libxml2-dev \
+        libpq-dev\
+	
+        && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+        && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip intl xmlrpc soap opcache \
+        && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+        && apt-get install vim -y
 
-COPY beryllium /var/www/html
-
-RUN echo "$(whoami)" > /var/www/html/user1.html
-
-RUN useradd ghonz
-
-USER ghonz
-
-RUN echo "$(whoami)" > /tmp/user2.html
-
-USER root
-
-RUN cp /tmp/user2.html /var/www/html/user2.html
-
-CMD apachectl -DFOREGROUND
+COPY  . /var/www/html/
+WORKDIR /var/www/html/
