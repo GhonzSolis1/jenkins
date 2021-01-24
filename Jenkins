@@ -14,11 +14,19 @@ pipeline {
      
       steps {
           script {			
-           echo 'hola mundo' 
+           bat "echo 'hola mundo'" 
         }
       }
     }
+	
+	stage("build"){
+		steps{
+		script{
+			bat "echo 'mi stage'"
+		}
+		}
   }
+  
   post {
       always {          
            bat  "echo 'fase always'" 
