@@ -26,7 +26,7 @@ pipeline {
 		}
 		}
   }
-  
+  }
   post {
       always {          
            bat  "echo 'fase always'" 
@@ -40,4 +40,4 @@ pipeline {
       }
       
   }
-}  
+  }
