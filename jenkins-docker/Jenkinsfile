@@ -14,14 +14,14 @@ pipeline {
 
             when {
                 expression { 
-                    DOCKER_EXIST = bat(returnStdout: true, script: 'echo "$(docker ps -q --filter name=${name_final})"').trim()
+                    DOCKER_EXIST = bat(returnStdout: true, script: 'echo "$(docker ps -q --filter name=proyecto-qaiproyecto-qa81)"').trim()
                     return  DOCKER_EXIST != '' 
                 }
             }
             steps {
                 script{
                     bat '''
-					docker stop ${name_final}
+					docker stop proyecto-qaiproyecto-qa81
 					'''
                     }
                     
@@ -45,7 +45,7 @@ pipeline {
             steps {
                 script{
                     bat '''
-					docker run -dp ${puerto_imagen}:80 --name ${name_final} ${name_imagen}:${tag_imagen}
+					docker run -dp ${puerto_imagen}:80 --name proyecto-qaiproyecto-qa81 ${name_imagen}:${tag_imagen}
 					'''
                     }
                     
