@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script{
                     bat '''
-					docker run -dp ${puerto_imagen}:80 --name proyecto-qaiproyecto-qa81 ${name_imagen}:${tag_imagen}
+					docker run -dp ${puerto_imagen}:80 --name proyecto-qaiproyecto-qa81 iproyecto-qa:latest
 					'''
                     }
                     
