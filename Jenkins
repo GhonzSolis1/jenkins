@@ -14,21 +14,26 @@ pipeline {
      
       steps {
           script {			
-          bash "echo 'hola mundo'" 
+          sh '''#!/bin/bash
+			"echo 'Hola Mundo'" '''
         }
       }
     }
   }
   post {
       always {          
-           bash "echo 'fase always'" 
+           sh '''#!/bin/bash
+			"echo 'fase ALWAYS'" '''
       }
       success {
-            bash "echo 'fase success'"
+             sh '''#!/bin/bash
+			"echo 'fase SUCESS'" '''
         }
 
-      failure {
-           bash "echo 'fase failure'" 
+      failure { 
+		   
+		    sh '''#!/bin/bash
+			"echo 'fase failure'" '''
       }
       
   }
