@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     bat ''' 
-					docker build  jobs/dockerweb/ -t apache .
+					docker build -t apache -f jobs/dockerweb/dockerfile .
 					'''
                     
                     }
