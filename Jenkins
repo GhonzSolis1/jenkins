@@ -21,14 +21,14 @@ pipeline {
   }
   post {
       always {          
-            echo 'fase always' 
+           sh "echo 'fase always'" 
       }
       success {
-            echo 'fase success' 
+            sh "echo 'fase success'"
         }
 
       failure {
-           echo 'fase failure' 
+           sh "echo 'fase failure'" 
       }
       
   }
