@@ -10,24 +10,7 @@ pipeline {
         name_final = "${name_container}${tag_imagen}${puerto_imagen}"        
     }
     stages {
-          stage('stop/rm') {
-
-            when {
-                expression { 
-                    DOCKER_EXIST = bat(returnStdout: true, script: 'echo "$(docker ps -q --filter name=proyecto-qa)"').trim()
-                    return  DOCKER_EXIST != '' 
-                }
-            }
-            steps {
-                script{
-                    bat ''' 
-                         docker stop proyecto-qa
-                    '''
-                    }
-                    
-                }                    
-                                  
-            }
+          
            
         stage('build') {
             steps {
