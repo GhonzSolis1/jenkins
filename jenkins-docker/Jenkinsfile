@@ -18,14 +18,7 @@ pipeline {
                     return  DOCKER_EXIST != '' 
                 }
             }
-            steps {
-                script{
-                    bat '''
-					docker stop proyecto-qaiproyecto-qa81
-					'''
-                    }
                     
-                }                    
                                   
             }
            
